@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "Client/1.0.0": {
+      "Cliente/1.0.0": {
         "dependencies": {
           "Dominio": "1.0.0",
           "System.ServiceModel.Http": "4.5.3"
         },
         "runtime": {
-          "Client.dll": {}
+          "Cliente.dll": {}
         }
       },
       "System.Private.ServiceModel/4.5.3": {
@@ -86,7 +86,7 @@
     }
   },
   "libraries": {
-    "Client/1.0.0": {
+    "Cliente/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

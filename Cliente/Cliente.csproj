@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>Client</AssemblyName>
+    <AssemblyName>Cliente</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>Client</PackageId>
   </PropertyGroup>
