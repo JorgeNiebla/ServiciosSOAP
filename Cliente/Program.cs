@@ -17,8 +17,8 @@ namespace Client
             var endpoint = new EndpointAddress(new Uri(string.Format("http://{0}:5000/Services.svc", Environment.MachineName)));
 			var channelFactory = new ChannelFactory<IServices>(binding, endpoint);
 			var serviceClient = channelFactory.CreateChannel();
-			var result = serviceClient.EnviarMensaje("hey");
-			Console.WriteLine("Ping method result: {0}", result);
+			var result = serviceClient.EnviarMensaje("hola");
+			Console.WriteLine("Resultado de metodo de EnviarMensaje: {0}", result);
 
 			var input = new PedidoModelInput
 			{
