@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>SOAPWebServices</AssemblyName>
+    <AssemblyName>ServiciosSOAP</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>Server</PackageId>
   </PropertyGroup>
