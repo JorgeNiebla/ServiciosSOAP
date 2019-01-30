@@ -5,3 +5,6 @@
 /ServiciosSOAP/bin
 /ServiciosSOAP/obj
 /.vs
+/ClienteWSDL/obj
+/ClienteWSDL/bin
+/ServiciosSOAP/Properties/PublishProfiles

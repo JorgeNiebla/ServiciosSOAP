@@ -1,0 +1,112 @@
+﻿<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/" targetNamespace="http://tempuri.org/" name="IServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System"/>
+      <xs:element name="EnviarMensaje">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="mensaje" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EnviarMensajeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="EnviarMensajeResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CalcularPedido">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="inputModel" type="tns:PedidoModelInput"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CalcularPedidoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="CalcularPedidoResult" type="tns:PedidoModelResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="PedidoModelInput">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Productos" nillable="true" type="tns:ArrayOfProducto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PedidoModelInput" nillable="true" type="tns:PedidoModelInput"/>
+      <xs:complexType name="PedidoModelResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Impuestos" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="SubTotal" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="Total" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PedidoModelResponse" nillable="true" type="tns:PedidoModelResponse"/>
+      <xs:complexType name="ArrayOfProducto">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" nillable="true" name="Producto" type="tns:Producto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfProducto" nillable="true" type="tns:ArrayOfProducto"/>
+      <xs:complexType name="Producto">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="NombreProducto" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="PrecioUnitario" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="Cantidad" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Producto" nillable="true" type="tns:Producto"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IServices_EnviarMensaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarMensaje"/>
+  </wsdl:message>
+  <wsdl:message name="IServices_EnviarMensaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarMensajeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IServices_CalcularPedido_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularPedido"/>
+  </wsdl:message>
+  <wsdl:message name="IServices_CalcularPedido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularPedidoResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IServices">
+    <wsdl:operation name="EnviarMensaje">
+      <wsdl:input message="tns:IServices_EnviarMensaje_InputMessage"/>
+      <wsdl:output message="tns:IServices_EnviarMensaje_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularPedido">
+      <wsdl:input message="tns:IServices_CalcularPedido_InputMessage"/>
+      <wsdl:output message="tns:IServices_CalcularPedido_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServices" type="tns:IServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="EnviarMensaje">
+      <soap:operation soapAction="http://tempuri.org/IServices/EnviarMensaje" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularPedido">
+      <soap:operation soapAction="http://tempuri.org/IServices/CalcularPedido" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IServices">
+    <wsdl:port name="BasicHttpBinding_IServices" binding="tns:BasicHttpBinding_IServices">
+      <soap:address location="http://webservices.nbgz.me/Services.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

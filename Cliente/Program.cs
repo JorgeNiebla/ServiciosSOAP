@@ -14,8 +14,9 @@ namespace Client
             var textEncodingBinding = new TextMessageEncodingBindingElement(MessageVersion.Soap12WSAddressing10, System.Text.Encoding.UTF8);
             var binding = new CustomBinding(textEncodingBinding, transportBinding);
 
-            var endpoint = new EndpointAddress(new Uri(string.Format("http://{0}:5000/Services.svc", Environment.MachineName)));
-			var channelFactory = new ChannelFactory<IServices>(binding, endpoint);
+            var endpoint = new EndpointAddress(new Uri("http://webservices.nbgz.me/Services.svc"));
+            //var endpoint = new EndpointAddress(new Uri(string.Format("http://{0}:5000/Services.svc", Environment.MachineName)));
+            var channelFactory = new ChannelFactory<IServices>(binding, endpoint);
 			var serviceClient = channelFactory.CreateChannel();
 			var result = serviceClient.EnviarMensaje("hola");
 			Console.WriteLine("Resultado de metodo de EnviarMensaje: {0}", result);
