@@ -1,8 +1,8 @@
-﻿using System;
+﻿using CalculadoraWS;
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using Webservices.nbgz.me;
 
 namespace ClienteWSDL
 {
@@ -12,7 +12,7 @@ namespace ClienteWSDL
         {
             Console.WriteLine("Hello World!");
 
-            var transportBinding = new HttpTransportBindingElement();
+            /*var transportBinding = new HttpTransportBindingElement();
             var textEncodingBinding = new TextMessageEncodingBindingElement(MessageVersion.Soap12WSAddressing10, System.Text.Encoding.UTF8);
             var binding = new CustomBinding(textEncodingBinding, transportBinding);
             var endpoint = new EndpointAddress(new Uri("http://webservices.nbgz.me/Services.svc"));
@@ -36,7 +36,19 @@ namespace ClienteWSDL
             var channelFactory = new ChannelFactory<IServices>(binding, endpoint);
             var serviceClient = channelFactory.CreateChannel();
 
-            var result = serviceClient.CalcularPedidoAsync(request).Result;
+            var result = serviceClient.CalcularPedidoAsync(request).Result;*/
+
+            var binding = new BasicHttpBinding();
+            var endpoint = new EndpointAddress(new Uri("http://www.dneonline.com/calculator.asmx"));
+            var client = new CalculatorSoapClient(binding, endpoint);
+
+            var addRequest = new AddRequest()
+            {
+                intA = 2,
+                intB = 5
+            };
+
+            var result = client.AddAsync(addRequest).Result;
         }
     }
 }
