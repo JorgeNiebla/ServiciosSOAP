@@ -17,184 +17,16 @@ namespace CalculadoraWS
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Add", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculadoraWS.AddResponse> AddAsync(CalculadoraWS.AddRequest request);
+        System.Threading.Tasks.Task<int> AddAsync(int intA, int intB);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Subtract", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculadoraWS.SubtractResponse> SubtractAsync(CalculadoraWS.SubtractRequest request);
+        System.Threading.Tasks.Task<int> SubtractAsync(int intA, int intB);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Multiply", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculadoraWS.MultiplyResponse> MultiplyAsync(CalculadoraWS.MultiplyRequest request);
+        System.Threading.Tasks.Task<int> MultiplyAsync(int intA, int intB);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Divide", ReplyAction="*")]
-        System.Threading.Tasks.Task<CalculadoraWS.DivideResponse> DivideAsync(CalculadoraWS.DivideRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Add", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    internal partial class AddRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int intA;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int intB;
-        
-        public AddRequest()
-        {
-        }
-        
-        public AddRequest(int intA, int intB)
-        {
-            this.intA = intA;
-            this.intB = intB;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="AddResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    internal partial class AddResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int AddResult;
-        
-        public AddResponse()
-        {
-        }
-        
-        public AddResponse(int AddResult)
-        {
-            this.AddResult = AddResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Subtract", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    internal partial class SubtractRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int intA;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int intB;
-        
-        public SubtractRequest()
-        {
-        }
-        
-        public SubtractRequest(int intA, int intB)
-        {
-            this.intA = intA;
-            this.intB = intB;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SubtractResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    internal partial class SubtractResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int SubtractResult;
-        
-        public SubtractResponse()
-        {
-        }
-        
-        public SubtractResponse(int SubtractResult)
-        {
-            this.SubtractResult = SubtractResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Multiply", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    internal partial class MultiplyRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int intA;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int intB;
-        
-        public MultiplyRequest()
-        {
-        }
-        
-        public MultiplyRequest(int intA, int intB)
-        {
-            this.intA = intA;
-            this.intB = intB;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="MultiplyResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    internal partial class MultiplyResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int MultiplyResult;
-        
-        public MultiplyResponse()
-        {
-        }
-        
-        public MultiplyResponse(int MultiplyResult)
-        {
-            this.MultiplyResult = MultiplyResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Divide", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    internal partial class DivideRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int intA;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int intB;
-        
-        public DivideRequest()
-        {
-        }
-        
-        public DivideRequest(int intA, int intB)
-        {
-            this.intA = intA;
-            this.intB = intB;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="DivideResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    internal partial class DivideResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int DivideResult;
-        
-        public DivideResponse()
-        {
-        }
-        
-        public DivideResponse(int DivideResult)
-        {
-            this.DivideResult = DivideResult;
-        }
+        System.Threading.Tasks.Task<int> DivideAsync(int intA, int intB);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
@@ -240,24 +72,24 @@ namespace CalculadoraWS
         {
         }
         
-        public System.Threading.Tasks.Task<CalculadoraWS.AddResponse> AddAsync(CalculadoraWS.AddRequest request)
+        public System.Threading.Tasks.Task<int> AddAsync(int intA, int intB)
         {
-            return base.Channel.AddAsync(request);
+            return base.Channel.AddAsync(intA, intB);
         }
         
-        public System.Threading.Tasks.Task<CalculadoraWS.SubtractResponse> SubtractAsync(CalculadoraWS.SubtractRequest request)
+        public System.Threading.Tasks.Task<int> SubtractAsync(int intA, int intB)
         {
-            return base.Channel.SubtractAsync(request);
+            return base.Channel.SubtractAsync(intA, intB);
         }
         
-        public System.Threading.Tasks.Task<CalculadoraWS.MultiplyResponse> MultiplyAsync(CalculadoraWS.MultiplyRequest request)
+        public System.Threading.Tasks.Task<int> MultiplyAsync(int intA, int intB)
         {
-            return base.Channel.MultiplyAsync(request);
+            return base.Channel.MultiplyAsync(intA, intB);
         }
         
-        public System.Threading.Tasks.Task<CalculadoraWS.DivideResponse> DivideAsync(CalculadoraWS.DivideRequest request)
+        public System.Threading.Tasks.Task<int> DivideAsync(int intA, int intB)
         {
-            return base.Channel.DivideAsync(request);
+            return base.Channel.DivideAsync(intA, intB);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

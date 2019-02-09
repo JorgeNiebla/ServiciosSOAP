@@ -8,8 +8,8 @@
     "Uri": "http://www.dneonline.com/calculator.asmx",
     "Namespace": "CalculadoraWS",
     "SelectedAccessLevelForGeneratedClass": "Internal",
-    "GenerateMessageContract": true,
-    "ReuseTypesinReferencedAssemblies": false,
+    "GenerateMessageContract": false,
+    "ReuseTypesinReferencedAssemblies": true,
     "ReuseTypesinAllReferencedAssemblies": true,
     "CollectionTypeReference": {
       "Item1": "System.Array",
